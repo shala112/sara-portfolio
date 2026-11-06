@@ -1,0 +1,32 @@
+/* Show every video frame without cropping. Letterboxing is intentional. */
+video {
+  object-fit: contain !important;
+  object-position: center center !important;
+  background-color: #050607;
+}
+
+.hero-bg {
+  background-color: #050607;
+}
+
+.hero-thumb > video,
+.supporting-image > video,
+.supporting-image .work-video > video,
+.work-video > video,
+.featured-player > video {
+  translate: none !important;
+  rotate: none !important;
+  scale: 1 !important;
+  transform: none !important;
+}
+
+/* Restore the original full-bleed homepage composition. */
+.hero-bg video {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+/* Keep the original lead-video layout, including fullscreen on mobile. */
+.category-block .featured-player .film-fullscreen {
+  display: grid !important;
+}

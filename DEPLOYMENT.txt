@@ -1,0 +1,39 @@
+小北作品集 - HLS / MP4 视频部署说明
+
+目录结构
+  index.html
+  assets/                   页面脚本、样式与 hls.js
+  posters/                  WebP 本地封面
+  videos/web/               2 分钟以内的 FastStart MP4
+  hls/<video>/index.m3u8    长视频 HLS 索引
+  hls/<video>/segment_*.ts  6 秒 HLS 分片
+  hls/<video>/cover.webp    HLS 视频封面
+
+部署要求
+  1. 保持 index.html 与 assets/ 的原始相对目录关系。
+  2. 服务端 MIME：
+     .m3u8  application/vnd.apple.mpegurl
+     .ts    video/mp2t
+     .mp4   video/mp4
+     .webp  image/webp
+  3. 为 MP4、TS 文件启用 HTTP Range（206 Partial Content）。
+  4. 不要把 m3u8 中的 TS 分片拆到其他目录，索引使用相对路径引用分片。
+  5. 本地预览可运行：node preview-server.mjs
+  6. 将本目录合并到仓库后，请移除 videos/web/ 中已由 HLS 替代的
+     9 个长 MP4，避免原视频与 HLS 同时存在而超过 GitHub Pages 的 1 GB 限制。
+     ketiyuan-featured.mp4
+     interview-jianghai-rush.mp4
+     interview-procuratorate-live.mp4
+     interview-zhengyu-report.mp4
+     film-family-integrity.mp4
+     work-city-echo.mp4
+     work-good-things.mp4
+     work-mountain-sea.mp4
+     work-yudong-tourism.mp4
+
+视频策略
+  - 短视频（<= 2 分钟）：点击后由 data-src 加载 FastStart MP4。
+  - 长视频（> 2 分钟）：点击后由 data-hls-src 加载 HLS；Safari 使用原生 HLS，
+    其他浏览器按需加载 hls.js。
+  - 页面初次加载不会为视频设置 src，也不会在视口内预加载视频。
+  - 同一时间只允许一个视频加载和播放。
