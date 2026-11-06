@@ -43,8 +43,8 @@ video {
   display: none;
 }
 
-/* Avoid reveal clipping and transforms blocking playback on small screens. */
-@media (max-width: 620px) {
+/* Avoid reveal clipping and transforms blocking playback on mobile and tablets. */
+@media (max-width: 900px) {
   .category-block .category-lead,
   .category-block .featured-player,
   .supporting-card,
@@ -85,6 +85,9 @@ video {
     display: none !important;
   }
 
+}
+
+@media (max-width: 620px) {
   .nav-links .nav-mobile-contact {
     display: flex;
     align-items: center;
