@@ -39,13 +39,39 @@ video {
   display: grid !important;
 }
 
+.nav-links .nav-mobile-contact {
+  display: none;
+}
+
 /* Avoid reveal clipping and transforms blocking playback on small screens. */
 @media (max-width: 620px) {
   .category-block .category-lead,
   .category-block .featured-player,
   .supporting-card,
   .supporting-card .supporting-image,
-  .supporting-card .work-video {
+  .supporting-card .work-video,
+  .section-label,
+  .section-head,
+  .section-head h2,
+  .category-nav a,
+  .category-block,
+  .category-header,
+  .category-en,
+  .category-title h3,
+  .category-count,
+  .lead-info,
+  .lead-info > *,
+  .supporting-head,
+  .works-note,
+  .resume-layout,
+  .resume-side-copy > *,
+  .resume-main > *,
+  .approach-heading,
+  .approach-heading > *,
+  .skill-grid .skill,
+  .contact-content > *,
+  .contact-bottom > *,
+  .contact-foot {
     opacity: 1 !important;
     visibility: visible !important;
     clip-path: none !important;
@@ -53,5 +79,24 @@ video {
     translate: none !important;
     rotate: none !important;
     scale: 1 !important;
+  }
+
+  .site-intro-veil {
+    display: none !important;
+  }
+
+  .nav-links .nav-mobile-contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    color: var(--accent);
+  }
+
+  .nav-links .nav-mobile-contact::after {
+    content: "↗";
+    font-family: var(--mono);
   }
 }
