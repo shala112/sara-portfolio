@@ -99,17 +99,15 @@ video {
     flex-wrap: nowrap;
     padding: 0 6px;
     margin: 0;
-    border: 0 !important;
-    border-radius: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
-  }
-
-  .nav::before,
-  .nav::after {
-    display: none !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-top: 0 !important;
+    border-radius: 0 0 14px 14px !important;
+    background: rgba(9, 10, 11, 0.42) !important;
+    box-shadow:
+      0 14px 38px rgba(0, 0, 0, 0.36),
+      inset 0 1px rgba(255, 255, 255, 0.16) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(125%) !important;
+    backdrop-filter: blur(18px) saturate(125%) !important;
   }
 
   .nav .brand {
